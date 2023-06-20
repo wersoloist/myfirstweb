@@ -7,6 +7,10 @@
   <meta charset="utf-8">
   <style>  /* CSS styles */
     body {
+      background-image: url("Architecture Department Construction Cost Recruitment Display Frame Background Material Wallpaper Image For Free Download - Pngtree.jpeg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* Additional background properties if needed */
       font-family: Arial, sans-serif;
       background-color: #f2f2f2;
     }
@@ -52,6 +56,17 @@
         Links.setColor('blue');
       }
     }
+    function updateDateTime() {
+      var dateTimeElement = document.getElementById("datetime");
+      var currentDate = new Date();
+      var dateTimeString = currentDate.toLocaleString(); // Adjust the date format as per your requirement
+      dateTimeElement.textContent = dateTimeString;
+    }
+
+    // Update the date and time every second
+    setInterval(updateDateTime, 1000);
+
+
   </script>
 </head>
 <body>
@@ -66,10 +81,29 @@
     <li><a href="3.html">JavaScript</a></li>
   </ol>
   <h1>HTML</h1>
+  <div id="clock"></div>
+  <div id="date"></div>
+  
+  <script>
+    function updateClock() {
+      var clockElement = document.getElementById("clock");
+      var dateElement = document.getElementById("date");
+      
+      var currentDate = new Date();
+      var timeString = currentDate.toLocaleTimeString();
+      var dateString = currentDate.toDateString();
+      
+      clockElement.textContent = "Current time: " + timeString;
+      dateElement.textContent = "Today's date: " + dateString;
+    }
+    
+    // Update the clock and date every second
+    setInterval(updateClock, 1000);
+  </script>
   <h2>HTML</h2>
   <hr>
   <p><a href="https://namu.wiki/w/HTML" target="_blank" title="html5 speicification">Hypertext Markup Language (HTML)</a> is the standard markup language for <strong>creating <u>web</u> pages</strong> and web applications.Web browsers receive HTML documents from a web server or from local storage and render them into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.
-  <img src="https://kinsta.com/wp-content/uploads/2022/06/html-css-javascript-differences.png" width="100%">
+  <img src="https://kinsta.com/wp-content/uploads/2022/06/html-css-javascript-differences.png" width="20%">
   </p>
   <p style="margin-top:45px;">HTML elements are the building blocks of HTML pages. With HTML constructs, images and other objects, such as interactive forms, may be embedded into the rendered page. It provides a means to create structured documents by denoting structural semantics for text such as headings, paragraphs, lists, links, quotes and other items. HTML elements are delineated by tags, written using angle brackets.
   </p>
@@ -119,18 +153,19 @@
           window.requestAnimationFrame(loop);
       }
   
-      // run the webcam image through the image model
       async function predict() {
-          // predict can take in an image, video or canvas html element
-          const prediction = await model.predict(webcam.canvas);
-          if(prediction[0].probability > 0.5){
-              document.querySelector('body').style.backgroundColor = 'white';
-              document.querySelector('body').style.color = 'black';
-          } else {
-              document.querySelector('body').style.backgroundColor = 'black';
-              document.querySelector('body').style.color = 'white';
-          }
-      }
+  const prediction = await model.predict(webcam.canvas);
+  if (prediction[0].probability > 0.5) {
+    // "day" 클래스에 대한 예측 확률이 0.5보다 높을 때
+    document.body.style.backgroundImage = 'url(af6dbbdd4e18f98d8f79e57aee5fbaba.jpg)';
+    document.body.style.color = 'black';
+  } else {
+    // "night" 클래스에 대한 예측 확률이 높을 때
+    document.body.style.backgroundImage = 'img.jpg)';
+    document.body.style.color = 'white';
+  }
+}
+
       init();
   </script>
 
